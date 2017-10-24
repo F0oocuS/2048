@@ -1,5 +1,7 @@
 class Cell {
-	constructor(fieldElement) {
+	constructor(fieldElement, game) {
+		this.game = game;
+
 		this.element = createAndAppend({
 			className: 'game__cell',
 			parentElement: fieldElement
@@ -17,6 +19,7 @@ class Cell {
 	set value(value) {
 		this._value = value;
 		this.element.innerHTML = value == 0 ? '' : value;
+		this.element.setAttribute('data-color', value);
 	}
 
 	clear() {
@@ -25,6 +28,7 @@ class Cell {
 
 	merge(cell) {
 		this.value += cell.value;
+		this.game.onCellMerge(this);
 		cell.clear();
 	}
 

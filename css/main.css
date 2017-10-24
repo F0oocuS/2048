@@ -15,7 +15,6 @@ html, body {
 	align-items: center;
 	height: 100%;
 	width: 100%;
-
 }
 
 .game__header {
@@ -29,6 +28,7 @@ html, body {
 	flex-wrap: wrap;
 	height: 80vmin;
 	width: 80vmin;
+	background: lightgrey;
 }
 
 .game__cell {
@@ -38,8 +38,57 @@ html, body {
 	height: 18vmin;
 	width: 18vmin;
 	margin: 1vmin;
-	border: 2px solid green;
+	background-color: #efebe9;
 	border-radius: 2vmin;
 	font-size: 8vmin;
+	font-weight: bold;
 	user-select: none;
+	color: grey;
+}
+
+.game__cell[data-color="2"] {
+	background-color: #fffde7;
+}
+.game__cell[data-color="4"] {
+	background-color: #ffecb3;
+}
+.game__cell[data-color="8"] {
+	background-color: #ffccbc;
+	color: white;
+}
+.game__cell[data-color="16"] {
+	background-color: #ffab91;
+	color: white;
+}
+.game__cell[data-color="32"] {
+	background-color: #ff8a65;
+	color: white;
+}
+.game__cell[data-color="64"] {
+	background-color: #ff7043;
+	color: white;
+}
+.game__cell[data-color="128"] {
+	background-color: #ffe082;
+	color: white;
+}
+.game__cell[data-color="256"] {
+	background-color: #ffd54f;
+	color: white;
+}
+.game__cell[data-color="512"] {
+	background-color: #ffca28;
+	color: white;
+}
+.game__cell[data-color="1024"] {
+	background-color: #ffc107;
+	color: white;
+}
+.game__cell[data-color="2048"] {
+	background-color: #ffb300;
+	color: white;
+}
+.game__cell[data-color="4096"], .game__cell[data-color="8192"] {
+	background-color: #000;
+	color: white;
 }
