@@ -9,5 +9,8 @@ let createAndAppend = function({className, parentElement, value}, tag = 'div') {
 	return element;
 }
 
+let getRundomInt = function(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
-new Game(document.body, 4);
+var game = new Game(document.body, 4);

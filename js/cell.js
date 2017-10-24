@@ -6,14 +6,8 @@ class Cell {
 		});
 
 		if (Math.random() > 0.8) {
-			this.value = Math.random() > 0.5 ? 4 : 2;
+			this.spawn();
 		}
-
-		this.element.onclick = function(e) {
-			this.merge();
-		}.bind(this);
-
-		// this.element.onclick = this.merge.bind(this); alternative variant
 	}
 
 	get value() {
@@ -29,7 +23,20 @@ class Cell {
 		this.value = '';
 	}
 
-	merge() {
-		this.value *= 2;
+	merge(cell) {
+		this.value += cell.value;
+		cell.clear();
+	}
+
+	isSameTo(cell) {
+		return this.value == cell.value;
+	}
+
+	spawn() {
+		this.value = Math.random() > 0.5 ? 4 : 2;
+	}
+
+	get isEmpty() {
+		return this.value == 0;
 	}
 }

@@ -15,6 +15,7 @@ html, body {
 	align-items: center;
 	height: 100%;
 	width: 100%;
+
 }
 
 .game__header {
@@ -28,7 +29,6 @@ html, body {
 	flex-wrap: wrap;
 	height: 80vmin;
 	width: 80vmin;
-	background: lightgrey;
 }
 
 .game__cell {
@@ -38,7 +38,7 @@ html, body {
 	height: 18vmin;
 	width: 18vmin;
 	margin: 1vmin;
-	border: 1px solid green;
+	border: 2px solid green;
 	border-radius: 2vmin;
 	font-size: 8vmin;
 	user-select: none;
