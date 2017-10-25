@@ -1,6 +1,7 @@
 class Cell {
 	constructor(fieldElement, game) {
 		this.game = game;
+		this.fieldElement = fieldElement;
 
 		this.element = createAndAppend({
 			className: 'game__cell',
@@ -27,8 +28,13 @@ class Cell {
 	}
 
 	merge(cell) {
+		if (this.value) {
+			this.game.addRating(this.value + cell.value);
+		}
+
+		new AnimateCell(cell, this);
+
 		this.value += cell.value;
-		this.game.onCellMerge(this);
 		cell.clear();
 	}
 
@@ -42,5 +48,24 @@ class Cell {
 
 	get isEmpty() {
 		return this.value == 0;
+	}
+}
+
+class AnimateCell {
+	constructor(fromCell, toCell) {
+		this.element = fromCell.element.cloneNode(true);
+		this.element.className = 'game__cell animate';
+		
+		this.element.style.top = fromCell.element.offsetTop + 'px';
+		this.element.style.left = fromCell.element.offsetLeft + 'px';
+
+		fromCell.fieldElement.appendChild(this.element);
+
+		this.element.style.top = toCell.element.offsetTop + 'px';
+		this.element.style.left = toCell.element.offsetleft + 'px';
+
+		setTimeout(function() {
+			fromCell.fieldElement.removeChild(this.element);
+		}.bind(this), 200)
 	}
 }

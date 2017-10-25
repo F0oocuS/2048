@@ -28,7 +28,9 @@ class Game {
 			}
 		}
 
-		window.onkeyup = function(e) {
+		console.log(this.field)
+
+		window.addEventListener('keyup', function(e) {
 			switch (e.keyCode) {
 				case 38:
 					this.moveUp();
@@ -43,7 +45,7 @@ class Game {
 					this.moveRight();
 					break;
 			}
-		}.bind(this);
+		}.bind(this));
 	}
 
 	set rating(value) {
@@ -53,6 +55,10 @@ class Game {
 
 	get rating() {
 		return this._rating;
+	}
+
+	addRating(value) {
+		this.rating += value;
 	}
 
 	spawnUnit() {
@@ -71,10 +77,6 @@ class Game {
 		} else {
 			alert('You lose')
 		}
-	}
-
-	onCellMerge(cell) {
-		this.rating += cell.value;
 	}
 
 	moveRight() {
